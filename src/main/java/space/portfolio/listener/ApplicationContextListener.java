@@ -2,7 +2,6 @@ package space.portfolio.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import space.portfolio.service.NameService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,7 +15,6 @@ public class ApplicationContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         LOGGER.debug("ApplicationContextListener void contextInitialized(...)");
-        NameService nameService = NameService.getInstance();
     }
 
     @Override
