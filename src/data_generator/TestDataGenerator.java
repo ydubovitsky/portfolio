@@ -1,3 +1,5 @@
+package net.devstudy.resume.testenv;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -32,9 +34,8 @@ import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 
 import net.coobird.thumbnailator.Thumbnails;
-import space.portfolio.model.LanguageLevel;
-import space.portfolio.model.LanguageType;
-
+import net.devstudy.resume.model.LanguageLevel;
+import net.devstudy.resume.model.LanguageType;
 
 /**
  * 
@@ -54,7 +55,7 @@ public class TestDataGenerator {
 	private static final String CERTIFICATES_PATH = "external/test-data/certificates/";
 	private static final String MEDIA_DIR = "C:\\Users\\user\\IdeaProjects\\portfolio\\src\\main\\webapp\\media";
 	private static final String COUTRY = "Russia";
-	private static final String[] CITIES = { "Kharkiv", "Kiyv", "Odessa" };
+	private static final String[] CITIES = { "Moscow", "St-Petersburg", "Tomsk" };
 	private static final String[] FOREGIN_LANGUAGES = { "Spanish", "French", "German", "Italian" };
 	private static final String PASSWORD_HASH = "$2a$10$q7732w6Rj3kZGhfDYSIXI.wFp.uwTSi2inB2rYHvm1iDIAf1J1eVq";
 
@@ -195,7 +196,7 @@ public class TestDataGenerator {
 			if (!entry.getValue().isEmpty()) {
 				ps.setLong(1, idProfile);
 				ps.setString(2, entry.getKey());
-				ps.setString(3, StringUtils.join(entry.getValue().toArray(), ","));
+				ps.setString(3, StringUtils.join(entry.getValue().toArray(), ", "));
 				ps.addBatch();
 			}
 		}
