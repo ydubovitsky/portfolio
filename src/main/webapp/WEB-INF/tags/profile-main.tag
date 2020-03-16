@@ -1,7 +1,7 @@
 <%@ tag pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 
 <div class="panel panel-primary">
-	<a href="/edit"><img class="img-responsive photo" src="/media/avatar/7dd3413a-b88a-4037-bcbd-f217db454082.jpg" alt="photo"></a>
+	<a href="/edit"><img class="img-responsive photo" src="/media/avatar/04ae4fcc-e4cc-43fe-b315-47c6e2c5adbb.jpg" alt="photo"></a>
 	<h1 class="text-center">
 		<a style="color: black;" href="/edit">${name != null ? name : 'Richard Hendricks' }</a>
 	</h1>

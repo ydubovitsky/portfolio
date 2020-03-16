@@ -26,6 +26,6 @@ public class ProfileController extends HttpServlet{
 		if(StringUtils.isNotBlank(param)) {
 			req.setAttribute("name", nameService.convertName(param));
 		}
-		req.getRequestDispatcher("/WEB-INF/JSP/profile.jsp").forward(req, resp);;
+		req.getRequestDispatcher("/WEB-INF/JSP/profile.jsp").forward(req, resp);
 	}
 }

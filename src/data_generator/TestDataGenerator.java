@@ -34,8 +34,8 @@ import org.apache.commons.lang.StringUtils;
 import org.joda.time.DateTime;
 
 import net.coobird.thumbnailator.Thumbnails;
-import net.devstudy.resume.model.LanguageLevel;
-import net.devstudy.resume.model.LanguageType;
+import space.portfolio.model.LanguageLevel;
+import space.portfolio.model.LanguageType;
 
 /**
  * 
