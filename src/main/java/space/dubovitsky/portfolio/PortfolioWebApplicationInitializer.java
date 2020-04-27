@@ -1,6 +1,5 @@
 package space.dubovitsky.portfolio;
 
-
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.web.WebApplicationInitializer;
