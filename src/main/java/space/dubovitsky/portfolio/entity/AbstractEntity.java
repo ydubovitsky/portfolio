@@ -2,8 +2,7 @@ package space.dubovitsky.portfolio.entity;
 
 import java.io.Serializable;
 
-
-public abstract class AbstractEntity<T>  implements Serializable {
+public abstract class AbstractEntity<T>  implements Serializable { //! Serializable - обязательно для передачи сущностей как параметрои и сохранения в сессии!
 
     public abstract T getId();
 
@@ -15,7 +14,6 @@ public abstract class AbstractEntity<T>  implements Serializable {
         return result;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
