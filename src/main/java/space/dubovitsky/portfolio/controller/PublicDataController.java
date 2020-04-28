@@ -5,24 +5,32 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import space.dubovitsky.portfolio.service.NameService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import space.dubovitsky.portfolio.entity.Profile;
+import space.dubovitsky.portfolio.repository.ProfileRepository;
 
+import javax.transaction.Transactional;
 
 @Controller
+@Transactional
 public class PublicDataController {
 
     @Autowired
-    private NameService nameService;
+    private ProfileRepository profileRepository;
 
-    @GetMapping(value="/{uid}")
-    public String getProfile(@PathVariable("uid") String uid, Model model){
-        String fullName = nameService.convertName(uid);
-        model.addAttribute("fullName", fullName);
+    @RequestMapping(value="/{uid}", method = RequestMethod.GET)
+    public String getProfile(@PathVariable("uid") String uid, Model model) {
+        Profile profile = profileRepository.findByUid(uid);
+        if (profile == null) {
+            return "page-not-found";
+        }
+        model.addAttribute("profile", profile);
         return "profile";
     }
 
     @GetMapping(value="/error")
     public String getError(){
-        return "error";
+        return "page-not-found";
     }
 }

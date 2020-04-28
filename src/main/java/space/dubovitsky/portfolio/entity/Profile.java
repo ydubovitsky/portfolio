@@ -77,12 +77,17 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
     @OneToMany(mappedBy = "profile", targetEntity = Practice.class, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private List<Practice> practices;
 
-    @OneToMany(mappedBy = "profile", targetEntity = Skill.class, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @OneToMany(mappedBy = "profile", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     private List<Skill> skills;
 
     @Embedded //! Одна таблица profile мапится на две сущности: profile and Contacts
     private Contacts contacts;
 
     public Profile() {
+    }
+
+    @Transient
+    public String getFullName() { //!TODO Вынести в сервис какой нибудь или в контроллер
+        return firstName + " " + lastName;
     }
 }

@@ -3,10 +3,9 @@ package space.dubovitsky.portfolio.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -25,6 +24,12 @@ public class MvcConfiguration implements WebMvcConfigurer {
         viewResolver.setPrefix("/WEB-INF/JSP/"); //! TODO Попробовать в Spring Boot, чтобы не в resources/template хранить вьюшки
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    public CommonsMultipartResolver commonsMultipartResolver() { //! Бин для работы с multipartFile, для загрузки бинарных данных через текстовый протокол Http
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        return commonsMultipartResolver;
     }
 
     /**

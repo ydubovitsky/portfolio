@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Skill extends AbstractEntity<Long> implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "SKILL_ID_GENERATOR", sequenceName = "SKILL_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "SKILL_ID_GENERATOR", sequenceName = "skill_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SKILL_ID_GENERATOR")
     @Column(unique = true, nullable = false)
     private Long id;
@@ -25,9 +25,8 @@ public class Skill extends AbstractEntity<Long> implements Serializable {
     @Column(nullable = false, length = 2147483647)
     private String value;
 
-    //bi-directional many-to-one association to Profile
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_profile", nullable = false)
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="id_profile", nullable=false)
     private Profile profile;
 
     public Skill() {
